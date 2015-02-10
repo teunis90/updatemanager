@@ -89,7 +89,6 @@ abstract class PacketManagerStrategy {
 	
 	public function addRemotePackages($run) {
 		$pdoBulk = new PdoBulk($this->getPdo());
-		$addRemotePackagesDebugText = '';
 		
 		$i = 0;
 		foreach($this->getPackagesList() as $p) {
