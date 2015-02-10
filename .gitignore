@@ -3,3 +3,4 @@ vendor
 app/cache/*
 app/logs/*
 app/sshkeys/*
+app/config/parameters.yml
