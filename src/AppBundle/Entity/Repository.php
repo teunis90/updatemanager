@@ -18,6 +18,8 @@ use AppBundle\Classes\PdoBulkSubquery;
  */
 abstract class Repository extends PdoBulk
 {
+	private $packagemanager;
+	
     /**
      * Constructor
      */
