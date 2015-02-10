@@ -14,7 +14,7 @@ class RepositoryApt extends Repository {
 	public function processPackages() {
 		try {
 			$packagesGzUrl = $this->getPackagesGzUrl();	
-		} catch (Exception $e) {
+		} catch (\Exception $e) {
 			// TODO: Log exception to file.
 			return false;
 		}
