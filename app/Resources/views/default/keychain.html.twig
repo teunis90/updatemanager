@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<div class="panel panel-default">
+    <div class="panel-heading" style="height: 50px;">
+        <div class="pull-left"><h4>Keychain overview</h4></div>
+        <div class="btn-group pull-right">
+            <a href="{{ path('keychainNew')  }}" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+        </div>
+    </div>
+ <table class="table table-striped table-condensed">
+ 	<thead>
+ 		<tr>
+ 			<th>#</th>
+ 			<th>Description</th>
+ 			<th>Privatekey</th>
+ 			<th>Publickey</th>
+ 			<th>&nbsp;</th>
+ 		</tr>
+ 	</thead>
+ 	<tbody>
+    {% for key in keychainList %}
+ 		<tr>
+ 			<td>{{key.id}}</td>
+ 			<td>{{key.comment}}</td>
+ 			<td>{{key.sshprivatekeyfilepath}}</td>
+ 			<td>{{key.sshpublickeyfilepath}}</td>
+ 			<td>
+ 			{# Determine default state icon #}
+ 			{% if key.defaultkey == 1 %}
+ 				<span class="glyphicon glyphicon-ok-sign green" aria-hidden="true"></span>&nbsp;
+ 			{% else %}
+ 				<a href="{{ path('keychainDefault', {'id': key.id})  }}"><span class="glyphicon glyphicon-ok black hovergreen" aria-hidden="true"></span></a>&nbsp;
+			{% endif %}
+			
+ 			{# Determine if able to delete key, not able to delete the defaultkey or when there are hosts attached to this key #}
+ 			{% if key.defaultkey == 1 %}
+ 			    <span class="glyphicon glyphicon-remove greyedout" aria-hidden="true"></span>&nbsp;
+ 			{% elseif key.hasChildren == 1 %}
+ 			    <span class="glyphicon glyphicon-remove greyedout" aria-hidden="true"></span>&nbsp;
+ 			{% else %}
+ 			    <a href="{{ path('keychainDelete', {'id': key.id})  }}"><span class="glyphicon glyphicon-remove black hoverred" aria-hidden="true"></span></a>&nbsp;
+			{% endif %}
+ 			    <a href="{{ path('keychainEdit', {'id': key.id})  }}"><span class="glyphicon glyphicon glyphicon-pencil black hoverblue" aria-hidden="true"></span></a>
+ 			</td>
+ 		</tr>
+    {% endfor %}
+ 	</tbody>
+ </table>
+ </div>
+</div>
+    
+{% endblock %}

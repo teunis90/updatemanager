@@ -1,0 +1,39 @@
+body {
+  min-height: 2000px;
+}
+
+.navbar-static-top {
+  margin-bottom: 19px;
+}
+
+.greyedout {
+	color: gray;
+}
+
+.black {
+	color: #000000;
+}
+
+.green {
+	color: #1cc405;
+}
+
+.hovergreen:hover {
+	color: #1cc405;
+}
+
+.red {
+	color: red;
+}
+
+.hoverred:hover {
+	color: red;
+}
+
+.blue {
+	color: #337ab7;
+}
+
+.hoverblue:hover {
+	color: #337ab7;
+}
