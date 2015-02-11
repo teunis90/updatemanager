@@ -5,10 +5,6 @@ namespace AppBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use AppBundle\Entity\Host;
-use AppBundle\Entity\Sshkeychain;
-use AppBundle\Form\Type\SshkeychainType;
-use Debver\Version;
 
 class OverviewController extends Controller
 {
