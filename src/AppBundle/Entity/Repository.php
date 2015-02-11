@@ -283,7 +283,7 @@ abstract class Repository extends PdoBulk
     /**
      * abstract function: processPackages
      * @description: Implement function with process repository packages logic
-     * @return boolean
+     * @return integer
      */
 	abstract public function processPackages();
 	
