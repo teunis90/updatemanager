@@ -48,7 +48,6 @@ class RepositoryApt extends Repository {
 			    // Process package at and of block (eob) or end of file (eof)
 			    if($buffer == "\n" || feof($fh)) {
 				    // Add to packagelist here
-				    $package = $this->setVersionFields($package);
 					$this->persistPackage($package);
 				    unset($package);
 					$numOfPackages++;
@@ -62,21 +61,6 @@ class RepositoryApt extends Repository {
 		unlink($uncompressedPackagesFile);
 		
 		return $numOfPackages;
-	}
-	
-	public static function setVersionFields($package) {
-		if(isset($package['version'])) {
-			// Match: [epoch:]version-rev
-			if(preg_match_all('/^((\d+):)?(.+)-(.+)?$/', $package['version'], $match)) {
-				$package['hexversion'] = bin2hex($match[2][0] . $match[3][0]);
-				$package['hexrevision'] = bin2hex($match[4][0]);
-			// Match: [epoch:]version, set rev on 0
-			} elseif(preg_match_all('/^((\d+):)?(.+)$/', $package['version'], $match)) {
-				$package['hexversion'] = bin2hex($match[2][0] . $match[3][0]);
-				$package['hexrevision'] = bin2hex('0');
-			}
-		}
-		return $package;
 	}
 	
 	private function downloadPackageGz($packagesGzUrl) {

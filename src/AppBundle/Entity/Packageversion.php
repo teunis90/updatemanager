@@ -29,20 +29,6 @@ class Packageversion
     private $version;
     
     /**
-     * @var string
-     *
-     * @ORM\Column(name="hexversion", type="string", length=96)
-     */
-    private $hexversion;
-    
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="hexrevision", type="string", length=64)
-     */
-    private $hexrevision;
-    
-    /**
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Repository")
      * @ORM\JoinColumn(name="repositoryid", referencedColumnName="id")
      */
@@ -163,49 +149,4 @@ class Packageversion
         return $this->run;
     }
 
-    /**
-     * Set hexversion
-     *
-     * @param string $hexversion
-     * @return Packageversion
-     */
-    public function setHexversion($hexversion)
-    {
-        $this->hexversion = $hexversion;
-
-        return $this;
-    }
-
-    /**
-     * Get hexversion
-     *
-     * @return string 
-     */
-    public function getHexversion()
-    {
-        return $this->hexversion;
-    }
-
-    /**
-     * Set hexrevision
-     *
-     * @param string $hexrevision
-     * @return Packageversion
-     */
-    public function setHexrevision($hexrevision)
-    {
-        $this->hexrevision = $hexrevision;
-
-        return $this;
-    }
-
-    /**
-     * Get hexrevision
-     *
-     * @return string 
-     */
-    public function getHexrevision()
-    {
-        return $this->hexrevision;
-    }
 }

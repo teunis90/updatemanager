@@ -302,8 +302,6 @@ abstract class Repository extends PdoBulk
 		$entry['repositoryid'] = $this->getId();
 		$entry['packageid'] = new PdoBulkSubquery("SELECT id FROM `Package` WHERE name = '" . $package['package'] . "' AND architecture = '" . $package['architecture'] . "'");
 		$entry['version'] = $package['version'];
-		$entry['hexversion'] = $package['hexversion'];
-		$entry['hexrevision'] = $package['hexrevision'];
 		$entry['runid'] = $run;
 		$this->persist('Packageversion', $entry);
 		

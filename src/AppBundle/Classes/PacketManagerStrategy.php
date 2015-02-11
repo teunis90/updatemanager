@@ -105,8 +105,6 @@ abstract class PacketManagerStrategy {
 			$packageversionEntry['packageid'] = 
 				new PdoBulkSubquery("(SELECT id FROM `Package` WHERE name = '" . $p['package'] . "' AND architecture = '" . $p['architecture'] . "')");
 			$packageversionEntry['version'] = $p['version'];
-			$packageversionEntry['hexversion'] = $p['hexversion'];
-			$packageversionEntry['hexrevision'] = $p['hexrevision'];
 			$packageversionEntry['runid'] = $run->getId();
 			$pdoBulk->persist('Packageversion', $packageversionEntry);
 			
