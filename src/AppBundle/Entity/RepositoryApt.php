@@ -47,10 +47,12 @@ class RepositoryApt extends Repository {
 			    }
 			    // Process package at and of block (eob) or end of file (eof)
 			    if($buffer == "\n" || feof($fh)) {
-				    // Add to packagelist here
-					$this->persistPackage($package);
-				    unset($package);
-					$numOfPackages++;
+				    if(isset($package)) {
+					    // Add to packagelist here
+						$this->persistPackage($package);
+					    unset($package);
+						$numOfPackages++;   
+				    }
 			    }
 			    $linenumber++;
 		    }
