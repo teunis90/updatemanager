@@ -66,7 +66,6 @@ class PacketManagerStrategyApt extends PacketManagerStrategy {
 			    // Process package at and of block (eob) or end of file (eof)
 			    if(isset($package) && $p == "") {
 				    // Add to packagelist here
-				    $package = RepositoryApt::setVersionFields($package);
 					if(isset($package['status']) && $package['status'] == 'install ok installed') {
 						$packagesList[] = $package;
 					}
