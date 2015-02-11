@@ -95,6 +95,7 @@ abstract class PacketManagerStrategy {
 			$i++;
 
 			if(! $packageid = $this->getPackageId($p)) {
+				$packageEntry = array();
 				$packageEntry['name'] = $p['package'];
 				$packageEntry['description'] = $p['description'];
 				$packageEntry['architecture'] = $p['architecture'];
