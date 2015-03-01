@@ -4,8 +4,8 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
-use AppBundle\Classes\PdoBulk;
-use AppBundle\Classes\PdoBulkSubquery;
+use PdoBulk\PdoBulk;
+use PdoBulk\PdoBulkSubquery;
 
 /**
  * Repository

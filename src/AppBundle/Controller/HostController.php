@@ -132,6 +132,7 @@ class HostController extends Controller
     
     /**
      * @Route("/host/delete/{id}", name="hostDelete")
+     * TODO: Implement actual delete
      */
     public function hostDeleteAction($id, Request $request)
     {   
@@ -141,4 +142,5 @@ class HostController extends Controller
             'hostList' => $hostList,
         ));
     }
+
 }

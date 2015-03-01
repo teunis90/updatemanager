@@ -2,8 +2,8 @@
 	
 namespace AppBundle\Classes;
 
-use AppBundle\Classes\PdoBulk;
-use AppBundle\Classes\PdoBulkSubquery;
+use PdoBulk\PdoBulk;
+use PdoBulk\PdoBulkSubquery;
 	
 abstract class PacketManagerStrategy {
 	
