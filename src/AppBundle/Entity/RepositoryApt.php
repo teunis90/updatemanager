@@ -58,7 +58,7 @@ class RepositoryApt extends Repository {
 		    }
 		    fclose($fh);
 		}
-		$this->flushQueue('Package');
+		$this->flushQueue('Package', ' ON DUPLICATE KEY UPDATE name = name');
 		$this->flushQueue('Packageversion', ' ON DUPLICATE KEY UPDATE `runid` = '.$this->getRunId().';');
 		unlink($uncompressedPackagesFile);
 		

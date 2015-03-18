@@ -306,7 +306,7 @@ abstract class Repository extends PdoBulk
 		$this->persist('Packageversion', $entry);
 		
 		if($this->getQueueLength('Packageversion') && $this->getQueueLength('Packageversion') > 399) {
-			$this->flushQueue('Package');
+			$this->flushQueue('Package', ' ON DUPLICATE KEY UPDATE name = name');
 			$this->flushQueue('Packageversion', ' ON DUPLICATE KEY UPDATE `runid` = '.$this->getRunId().';');
 		}
 	}
