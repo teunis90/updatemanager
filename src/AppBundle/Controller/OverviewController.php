@@ -22,9 +22,22 @@ class OverviewController extends Controller
     public function overviewAction()
     {   
 		$generalHostpackageOverview = $this->get('general_hostpackage_overview');
-		$overviewList = $generalHostpackageOverview->getHostOverview();
+		$overviewList = $generalHostpackageOverview->getAllHostsOverview();
 		
         return $this->render('default/overview.html.twig', array(
+            'overviewList' => $overviewList,
+        ));
+    }
+    
+    /**
+     * @Route("/overview/host/{id}", name="host_overview")
+     */
+    public function hostOverviewAction($id)
+    {   
+		$generalHostpackageOverview = $this->get('general_hostpackage_overview');
+		$overviewList = $generalHostpackageOverview->getHostOverview($id);
+		
+        return $this->render('default/host_overview.html.twig', array(
             'overviewList' => $overviewList,
         ));
     }
